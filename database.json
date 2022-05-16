@@ -1,0 +1,16 @@
+{
+    "dev": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "database": "db_learning",
+      "user": "app_user",
+      "password": "1234"
+    },
+    "test": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "database": "db_learning_test",
+      "user": "app_user",
+      "password": "1234"
+    }
+  }
