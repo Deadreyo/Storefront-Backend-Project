@@ -9,7 +9,7 @@
     "test": "tsc && set ENV=test&& db-migrate --env test up && (jasmine || echo) && db-migrate --env test reset",
     "tsc": "tsc"
   },
-  "author": "Udacity",
+  "author": "Ahmed Atwa",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.9",
