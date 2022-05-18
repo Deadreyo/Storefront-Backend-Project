@@ -19,6 +19,7 @@ Uses:
   
 ## Getting Started
 
+
 ### Available NPM scripts
 
 - npm run start // Compiles to Javascript and runs the project
@@ -28,10 +29,40 @@ Uses:
 - npm run test // Compiles to Javascript and runs the tests
 
 - npm run tsc // Compiles to Javascript
+### Database Setup
+1- Create the dev and test databases
+```sql
+CREATE DATABASE store_project;
+CREATE DATABASE store_project_test;
+```
+2- Create the user for the application
+```sql
+CREATE USER app_user WITH PASSWORD '1234';
+```
+3- Grant privileges on databases to user
+```sql
+GRANT ALL PRIVILEGES ON DATABASE store_project TO app_user;
+GRANT ALL PRIVILEGES ON DATABASE store_project_test TO app_user;
+```
+4- You are set. Now run the migrations with `npx db-migrate up`
+
+### Environment File Setup
+Create a .env file at the root of the project, with the following data:
+```d
+DB_HOST = 'localhost'
+DB_NAME = 'store_project'
+DB_TEST_NAME = 'store_project_test'
+DB_USER = 'app_user'
+DB_PASS = '1234'
+ENV = 'dev'
+BCRYPT_PEPPER = 'additional-security'
+SALT_ROUNDS = 10
+TOKEN_SECRET = 'unprecedented-secret'
+```
 
 ### Installation
 The project runs on port 3030 for development, and 8060 for testing.
-- Create the required databases, as specified in database.js and .env file.
+- Setup the required databases.
 
 - Run the script `npx db-migrate up` to run all the migrations.
 
